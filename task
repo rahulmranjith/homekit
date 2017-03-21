@@ -1,0 +1,11 @@
+cd /home/pi/node_modules/hap-nodejs/lib/res
+wget http://localhost:8765/picture/1/current/ -O output.jpg
+file=output.jpg
+minimumsize=5000
+actualsize=$(wc -c <"$file")
+if [ $actualsize -ge $minimumsize ]; then
+    echo image download successful
+else
+    wget http://localhost:8765/picture/1/current/ -O output.jpg
+fi
+ffmpeg -i /home/pi/node_modules/hap-nodejs/lib/res/output.jpg -vf scale=1280:720 /home/pi/node_modules/hap-nodejs/lib/res/snapshot.jpg -y

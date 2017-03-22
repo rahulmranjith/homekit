@@ -20,14 +20,14 @@ var FAKE_OUTLET = {
             if (err) {
                 return console.log(err);
             }
-            publishMqtt("cmnd/sonoff/POWER", "ON");
+            publishMqtt("cmnd/sonoff/POWER", "ON");//publishing the sonoff to controll sonoff esp8266 outlet s20
             console.log("...outlet is now on.");
         } else {
             FAKE_OUTLET.powerOn = false;
             if (err) {
                 return console.log(err);
             }
-            publishMqtt("cmnd/sonoff/POWER", "OFF");
+            publishMqtt("cmnd/sonoff/POWER", "OFF");//publishing the sonoff to controll sonoff esp8266 outlet s20
             console.log("...outlet is now off.");
         }
     },

@@ -5,7 +5,6 @@ var uuid = require('../').uuid;
 
 
 
-// here's a fake temperature sensor device that we'll expose to HomeKit
 var DS3231ESPTEMP = {
     currentTemperature: 50,
     getTemperature: function() {
@@ -15,7 +14,7 @@ var DS3231ESPTEMP = {
 
     setTemperature: function(value) {
         console.log(value);
-        DS3231ESPTEMP.currentTemperature = Math.round(value) //Math.round(Math.random() * 100);
+        DS3231ESPTEMP.currentTemperature = Math.round(value) 
     }
 }
 
@@ -46,12 +45,12 @@ sensor
     });
 
 var mqtt = require('mqtt');
-var client = mqtt.connect('mqtt://localhost');
+var client = mqtt.connect('mqtt://localhost');//mqtt server.
 
 client.on('connect', function() {
     client.subscribe('temperature');
 
-    client.on('message', function(topic, message) {
+    client.on('message', function(topic, message) { //subscribe to topic
         DS3231ESPTEMP.setTemperature(message);
         console.log("Sensor current temperature from mqtt:" + DS3231ESPTEMP.currentTemperature)
         // update the characteristic value so interested iOS devices can get notified
@@ -62,16 +61,3 @@ client.on('connect', function() {
     });
 });
 
-
-// randomize our temperature reading every 3 seconds
-// setInterval(function() {
-//
-//     DS3231ESPTEMP.setTemperature(sensor.getaccTemperature());
-//     console.log("Sensor current temperature from websocket:" + DS3231ESPTEMP.currentTemperature)
-//         // update the characteristic value so interested iOS devices can get notified
-//     sensor
-//         .getService(Service.TemperatureSensor)
-//         .setCharacteristic(Characteristic.CurrentTemperature, DS3231ESPTEMP.currentTemperature)
-//
-//
-// }, 10000);

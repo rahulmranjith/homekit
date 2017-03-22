@@ -9,7 +9,7 @@ var uuid = require('../').uuid;
 
 // here's a fake temperature sensor device that we'll expose to HomeKit
 var DHT11HUM = {
-    CurrentHumidity: 36,
+    CurrentHumidity: 36,//default humidity
     getHumidity: function() {
         console.log("Getting the current humidity!");
         return DHT11HUM.CurrentHumidity;
@@ -44,12 +44,12 @@ HumSensor
 
 
 var mqtt = require('mqtt');
-var client = mqtt.connect('mqtt://localhost');
+var client = mqtt.connect('mqtt://localhost');//defined the mqtt server 
 
 client.on('connect', function() {
-    client.subscribe('humidity');
+    client.subscribe('humidity');//on mqtt connection subscribe to humidity 
 
-    client.on('message', function(topic, message) {
+    client.on('message', function(topic, message) { // while a publish happens for humidity topic
         DHT11HUM.setHumidity(message);
         console.log("Sensor current humidity from mqtt:" + DHT11HUM.CurrentHumidity)
         // update the characteristic value so interested iOS devices can get notified
@@ -59,19 +59,3 @@ client.on('connect', function() {
         console.log(message.toString());
     });
 });
-
-// randomize our temperature reading every 3 seconds
-// setInterval(function() {
-//
-//     DHT11HUM.setHumidity(HumSensor.getaccHumidity());
-//     // update the characteristic value so interested iOS devices can get notified
-//     console.log("Sensor current humidity from websocket:" + DHT11HUM.CurrentHumidity);
-//     HumSensor
-//         .getService(Service.HumiditySensor)
-//         .setCharacteristic(Characteristic.CurrentRelativeHumidity, DHT11HUM.CurrentHumidity)
-//     // .setCharacteristic(Characteristic.StatusActive, true)
-//     //.setCharacteristic(Characteristic.StatusFault, 1)
-//     //.setCharacteristic(Characteristic.StatusTampered, 1)
-//     //.setCharacteristic(Characteristic.StatusLowBattery, 1)
-//     //.setCharacteristic(Characteristic.Name, "RMR")
-// }, 10000);

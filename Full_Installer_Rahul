@@ -13,3 +13,7 @@ sudo sh motioneyePlugin_Rahul
 echo "Motion Eye installtion completed"
 sleep 3
 clear
+echo "npm rebuild"
+sudo npm rebuild
+echo "npm rebuild completed"
+

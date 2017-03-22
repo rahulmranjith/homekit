@@ -5,7 +5,7 @@ var uuid = require('../').uuid;
 
 var cmd = require('node-cmd');
 
-function publishMqtt(type, value) {
+function publishMqtt(type, value) {//publish motion detected 
     console.log(value);
     var mqtt = require('mqtt');
     var clients = mqtt.connect('mqtt://localhost');
@@ -13,19 +13,19 @@ function publishMqtt(type, value) {
 }
 
 var Gpio = require('onoff').Gpio,
-    PIRSensor = new Gpio(27, 'in', 'both');
+    PIRSensor = new Gpio(27, 'in', 'both'); //PIN setup for PIR sensors
 
 start();
 // here's a fake temperature sensor device that we'll expose to HomeKit
-var FAKE_MOTIONSENSOR = {
+var RahulMR_MOTIONSENSOR = {
     isPresent: false,
     getState: function() {
         console.log("Getting the current state!");
-        return FAKE_MOTIONSENSOR.isPresent;
+        return RahulMR_MOTIONSENSOR.isPresent;
     },
     randomState: function() {
         // randomize temperature to a value between 0 and 100
-        FAKE_MOTIONSENSOR.isPresent = !FAKE_MOTIONSENSOR.isPresent;
+        RahulMR_MOTIONSENSOR.isPresent = !RahulMR_MOTIONSENSOR.isPresent;
     }
 }
 
@@ -50,30 +50,19 @@ sensor
     .on('get', function(callback) {
 
         // return our current value
-        callback(null, FAKE_MOTIONSENSOR.getState());
+        callback(null, RahulMR_MOTIONSENSOR.getState());
     });
 
-// randomize our temperature reading every 3 seconds
-
-
-
-// PIRSensor.watch(function(error, input) {
-//     if (error) {
-//         throw error;
-//     }
-//     console.log(input);
-//
-// })
 
 var timer;
 
 var foundMotion = false;
-
+//start a timer with set interval of 1 sec to check every second whether any motion has been detected.if it prevails for 2 secs then alert is generated using the mqtt
 function start() {
     timer = setInterval(function() {
         var statePIR = PIRSensor.readSync();
         if (statePIR == 1) {
-            console.log(statePIR)
+            console.log(statePIR) // motion detected for 2 seconds will trigger alert
             if (foundMotion) {
                 //motion detected for 1 sec
                 console.log("motion detected...")
@@ -81,10 +70,7 @@ function start() {
                 sensor
                     .getService(Service.MotionSensor)
                     .setCharacteristic(Characteristic.MotionDetected, true);
-
-
-
-                publishMqtt('MOTION', '**Intrusion**');
+               publishMqtt('MOTION', '**Intrusion**');  // publish mqtt motion intrusion for LCD display 
                 foundMotion = false;
             }
             if (foundMotion == false) {
@@ -103,27 +89,3 @@ function start() {
 function stop() {
     clearTimeout(timer);
 };
-
-
-
-//
-// var mqtt = require('mqtt');
-// var client = mqtt.connect('mqtt://localhost');
-//
-// client.on('connect', function() {
-//     client.subscribe('MOTION');
-//
-//     client.on('message', function(topic, message) {
-//         if (message == '$$ INTRUSION $$') {
-//
-//             publishMqtt('LIGHTOFF', '^^ motion from PIR');
-//             sensor
-//                 .getService(Service.MotionSensor)
-//                 .setCharacteristic(Characteristic.MotionDetected, true);
-//             console.log(message.toString());
-//         } else {
-//             publishMqtt('LIGHTOFF', '^^no motion');
-//
-//         }
-//     });
-// });

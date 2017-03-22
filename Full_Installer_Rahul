@@ -1,0 +1,15 @@
+clear
+echo "Starting HAPNodeJS Motion Eye and Dependency Installation"
+sleep 1
+clear
+cd /home/pi
+sudo wget https://goo.gl/CsTaCR -O hapinstaller_Rahul
+sudo sh hapinstaller_Rahul
+clear
+echo "HAP Completed"
+sleep 1
+sudo wget https://goo.gl/qooJVQ -O motioneyePlugin_Rahul
+sudo sh motioneyePlugin_Rahul
+echo "Motion Eye installtion completed"
+sleep 3
+clear

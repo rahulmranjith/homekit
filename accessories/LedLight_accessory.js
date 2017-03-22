@@ -2,9 +2,8 @@ var Accessory = require('../').Accessory;
 var Service = require('../').Service;
 var Characteristic = require('../').Characteristic;
 var uuid = require('../').uuid;
-//
-// var Gpio = require('onoff').Gpio,
-// led = new Gpio(17, 'out');
+
+//mqtt to publish the value hue.saturation.brightness to the ESP8266 server.
 
 function publishMqtt(type, value) {
     console.log(value);
@@ -13,13 +12,13 @@ function publishMqtt(type, value) {
     clients.publish(type, value.toString());
 }
 
+//connect a normal LED to GPIO 17 to view the light onoff, brightness change using the PWM cycles.
 var Gpio = require('pigpio').Gpio;
 led = new Gpio(17, {
     mode: Gpio.OUTPUT
 });
+
 dutyCycle = 0;
-
-
 
 var LightController = {
     name: "RAHUL Light", //name of accessory
@@ -40,24 +39,14 @@ var LightController = {
         if (this.outputLogs) console.log("Turning the '%s' %s", this.name, status ? "on" : "off");
         if (status == 1 || status == true) {
             publishMqtt('LIGHTON', 'LIGHTON');
-            publishMqtt('brightness', 'brightness' + this.brightness);
+            publishMqtt('brightness', 'brightness' + this.brightness);//publish brightness message to esp8266
             led.pwmWrite(255);
-            //led.writeSync(1);
-            // setInterval(function () {
-            //           led.pwmWrite(dutyCycle);
-            //
-            //           dutyCycle += 2;
-            //           if (dutyCycle > 255) {
-            //             dutyCycle = 0;
-            //           }
-            //         }, 50);
+           //pwm with 255 gives ull
 
         } else {
-            publishMqtt('LIGHTOFF', 'LIGHTOFF');
+            publishMqtt('LIGHTOFF', 'LIGHTOFF');//publish lightoff message to esp8266
             led.pwmWrite(0);
-            //led.writeSync(0);
-            //light.sendNotification("Light Off");
-
+           //make light off
         }
         this.power = status;
     },
@@ -68,13 +57,13 @@ var LightController = {
     },
 
     setBrightness: function(brightness) { //set brightness
-        publishMqtt('brightness', 'brightness' + brightness);
+        publishMqtt('brightness', 'brightness' + brightness);//publish brig to ESP8266
         if (this.outputLogs) console.log("Setting '%s' brightness to %s", this.name, brightness);
         this.brightness = brightness;
         var cycle = (brightness * 255) / 100;
         cycle = Math.round(cycle);
 
-        led.pwmWrite(cycle);
+        led.pwmWrite(cycle);//GPIO Led brigh value.
 
         console.log(cycle);
     },
@@ -85,7 +74,7 @@ var LightController = {
     },
 
     setSaturation: function(saturation) { //set brightness
-        publishMqtt('saturation', 'saturation' + saturation);
+        publishMqtt('saturation', 'saturation' + saturation);//publish saturation to ESP8266
         if (this.outputLogs) console.log("Setting '%s' saturation to %s", this.name, saturation);
         this.saturation = saturation;
     },

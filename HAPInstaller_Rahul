@@ -1,4 +1,4 @@
-cd /home/pi
+cd /home/pi/rmrz
 sudo apt-get update 
 sudo apt-get remove nodejs nodejs-legacy -y
 sudo apt-get install git-core libnss-mdns libavahi-compat-libdnssd-dev -y

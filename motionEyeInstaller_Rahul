@@ -2,7 +2,7 @@ clear
 echo "Starting Motioneye Installation for HomeKit"
 sleep 1
 clear
-cd /home/pi
+cd /home/pi/rmrz
 sudo wget https://github.com/ccrisan/motioneye/wiki/precompiled/ffmpeg_3.1.1-1_armhf.deb
 sudo dpkg -i ffmpeg_3.1.1-1_armhf.deb
 sudo rm -rf ffmpeg_3.1.1-1_armhf.deb

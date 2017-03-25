@@ -28,7 +28,7 @@ var sensorHumidityUUID = uuid.generate('hap-nodejs:accessories:humidity-sensor')
 var HumSensor = exports.accessory = new Accessory('Humidity Sensor MRz', sensorHumidityUUID);
 
 // Add properties for publishing (in case we're using Core.js and not BridgedCore.js)
-HumSensor.username = "A3:93:33:BB:AA:AA";
+HumSensor.username = "11:93:33:BB:AA:AA";
 HumSensor.pincode = "031-45-154";
 
 // We can see the complete list of Services and Characteristics in `lib/gen/HomeKitTypes.js`

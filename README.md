@@ -39,7 +39,7 @@ Raspi Cam used to capture the image once motion detection happens.The camera is 
 Extra Changes :
 ----------------
 
->> Configured the RPi for remote access:
+--Configured the RPi for remote access:
 
 Edit : sudo nano /etc/dhcpcd.conf
 Add the following code to the last. This will set the IP of the pi as 192.168.1.99
@@ -54,18 +54,19 @@ static ip_address=192.168.1.199/24
 static routers=192.168.1.1
 static domain_name_servers=192.168.1.1 8.8.8.8
 
->> Set the RPi camera for the motion eye
+--Set the RPi camera for the motion eye
 Edit:sudo nano /etc/modules
 Add bcm2835-v4l2 to the end 
 and reboot. 
 
->> Camera led off 
+--Camera led off 
 Edit : sudo nano /boot/config.txt
 Add 
 disable_camera_led=1 
 to the last line 
 
->>Configure forever for startup script.
+--Configure forever for startup script.
+
 Edit :sudo nano /etc/rc.local 
 Add 
 sudo forever start /home/pi/rmrz/HAP-NodeJS/CameraCore.js 

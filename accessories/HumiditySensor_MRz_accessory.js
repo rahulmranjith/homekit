@@ -25,7 +25,7 @@ var DHT11HUM = {
 var sensorHumidityUUID = uuid.generate('hap-nodejs:accessories:humidity-sensor');
 
 // This is the Accessory that we'll return to HAP-NodeJS that represents our fake lock.
-var HumSensor = exports.accessory = new Accessory('Humidity Sensor', sensorHumidityUUID);
+var HumSensor = exports.accessory = new Accessory('Humidity Sensor MRz', sensorHumidityUUID);
 
 // Add properties for publishing (in case we're using Core.js and not BridgedCore.js)
 HumSensor.username = "A3:93:33:BB:AA:AA";

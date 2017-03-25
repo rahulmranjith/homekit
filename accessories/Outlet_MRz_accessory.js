@@ -12,18 +12,18 @@ function publishMqtt(type, value) {
     clients.publish(type, value.toString());
 }
 // here's a fake hardware device that we'll expose to HomeKit
-var FAKE_OUTLET = {
+var MRz_OUTLET = {
     setPowerOn: function(on) {
         console.log("Turning the outlet %s!...", on ? "on" : "off");
         if (on) {
-            FAKE_OUTLET.powerOn = true;
+            MRz_OUTLET.powerOn = true;
             if (err) {
                 return console.log(err);
             }
             publishMqtt("cmnd/sonoff/POWER", "ON");//publishing the sonoff to controll sonoff esp8266 outlet s20
             console.log("...outlet is now on.");
         } else {
-            FAKE_OUTLET.powerOn = false;
+            MRz_OUTLET.powerOn = false;
             if (err) {
                 return console.log(err);
             }
@@ -42,10 +42,10 @@ var FAKE_OUTLET = {
 var outletUUID = uuid.generate('hap-nodejs:accessories:Outlet');
 
 // This is the Accessory that we'll return to HAP-NodeJS that represents our fake light.
-var outlet = exports.accessory = new Accessory('Outlet', outletUUID);
+var outlet = exports.accessory = new Accessory('Outlet MRz', outletUUID);
 
 // Add properties for publishing (in case we're using Core.js and not BridgedCore.js)
-outlet.username = "1A:11:34:33:5D:FF";
+outlet.username = "1A:11:34:33:33:FF";
 outlet.pincode = "031-45-154";
 
 // set some basic properties (these values are arbitrary and setting them is optional)
@@ -57,7 +57,7 @@ outlet
 
 // listen for the "identify" event for this Accessory
 outlet.on('identify', function(paired, callback) {
-    FAKE_OUTLET.identify();
+    MRz_OUTLET.identify();
     callback(); // success
 });
 
@@ -67,7 +67,7 @@ outlet
     .addService(Service.Outlet, "Power Outlet") // services exposed to the user should have "names" like "Fake Light" for us
     .getCharacteristic(Characteristic.On)
     .on('set', function(value, callback) {
-        FAKE_OUTLET.setPowerOn(value);
+        MRz_OUTLET.setPowerOn(value);
         callback(); // Our fake Outlet is synchronous - this value has been successfully set
     });
 
@@ -84,7 +84,7 @@ outlet
 
         var err = null; // in case there were any problems
 
-        if (FAKE_OUTLET.powerOn) {
+        if (MRz_OUTLET.powerOn) {
             console.log("Are we on? Yes.");
             callback(err, true);
         } else {

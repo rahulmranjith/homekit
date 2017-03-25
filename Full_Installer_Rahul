@@ -31,28 +31,31 @@ echo "Motion Eye installtion completed"
 sleep 3
 
 
-echo "forever instal"
+echo "forever Begins"
 sudo npm install forever -g
-echo "forever install complete"
+echo "forever install End"
 
-echo "mosca mqtt install"
+echo "mosca mqtt Begin"
 sudo npm install mosca --save
-echo "mosca mqtt finished"
+echo "mosca mqtt Ends"
 
-echo "pi-gpio "
+echo "pi-gpio Begins"
 wget abyz.co.uk/rpi/pigpio/pigpio.zip
 unzip pigpio.zip
 cd PIGPIO
 make
 sudo make install
 npm install pigpio
-echo "pi-gpio complete"
+echo "pi-gpio Ends"
 
-echo "onpff"
+echo "node cmd starts"
+npm install node-cmd
+echo "node cmd ends"
+
+echo "onpff Begins"
 sudo npm install onoff
-echo "completed onoff"
+echo "onoff Ends"
 
-echo "npm rebuild"
+echo "npm rebuild Starts"
 sudo npm rebuild
-echo "npm rebuild completed"
-
+echo "npm rebuild Ends"

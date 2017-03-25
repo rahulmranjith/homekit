@@ -48,7 +48,7 @@ unzip pigpio.zip
 cd PIGPIO
 make
 sudo make install
-npm install pigpio
+sudo npm install pigpio
 echo "pi-gpio Ends"
 
 echo "node cmd starts"

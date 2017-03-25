@@ -56,6 +56,10 @@ echo "onpff Begins"
 sudo npm install onoff
 echo "onoff Ends"
 
+echo "mqt Begins"
+sudo npm install mqtt -g
+echo "mqtt Ends"
+
 echo "npm rebuild Starts"
 sudo npm rebuild
 echo "npm rebuild Ends"

@@ -49,7 +49,7 @@ npm install pigpio
 echo "pi-gpio Ends"
 
 echo "node cmd starts"
-npm install node-cmd
+sudo npm install node-cmd
 echo "node cmd ends"
 
 echo "onpff Begins"

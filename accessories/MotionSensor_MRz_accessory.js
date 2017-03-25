@@ -36,7 +36,7 @@ var MRz_MOTIONSENSOR = {
 var sensorUUID = uuid.generate('hap-nodejs:accessories:motion-sensor');
 
 // This is the Accessory that we'll return to HAP-NodeJS that represents our fake lock.
-var sensor = exports.accessory = new Accessory('Motion Sensor-MRz', sensorUUID);
+var sensor = exports.accessory = new Accessory('Motion Sensor MRz', sensorUUID);
 
 // Add properties for publishing (in case we're using Core.js and not BridgedCore.js)
 sensor.username = "11:39:33:AE:53:3A";

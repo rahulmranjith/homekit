@@ -23,7 +23,7 @@ dutyCycle = 0;
 var LightController = {
     name: " RGB MRz Light", //name of accessory
     pincode: "031-45-154",
-    username: "A3:99:33:12:33:1A", // MAC like address used by HomeKit to differentiate accessories.
+    username: "11:99:33:12:33:1A", // MAC like address used by HomeKit to differentiate accessories.
     manufacturer: "JAI Systems", //manufacturer (optional)
     model: "v1.0", //model (optional)
     serialNumber: "A12345K99", //serial number (optional)

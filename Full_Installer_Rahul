@@ -60,7 +60,7 @@ sudo npm install onoff
 echo "onoff Ends"
 
 echo "mqt Begins"
-sudo npm install mqtt -g
+sudo npm install mqtt --save
 echo "mqtt Ends"
 
 echo "npm rebuild Starts"

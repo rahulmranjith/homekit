@@ -70,5 +70,6 @@ to the last line
 Edit :sudo nano /etc/rc.local 
 Add 
 sudo forever start /home/pi/rmrz/HAP-NodeJS/CameraCore.js 
+sudo forever start /home/pi/rmrz/duckdns.js
 before exit 0
 

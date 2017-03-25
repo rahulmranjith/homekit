@@ -39,7 +39,7 @@ var sensorUUID = uuid.generate('hap-nodejs:accessories:motion-sensor');
 var sensor = exports.accessory = new Accessory('Motion Sensor-MRz', sensorUUID);
 
 // Add properties for publishing (in case we're using Core.js and not BridgedCore.js)
-sensor.username = "11:39:3B:AE:53:3A";
+sensor.username = "11:39:33:AE:53:3A";
 sensor.pincode = "031-45-154";
 
 // Add the actual TemperatureSensor Service.

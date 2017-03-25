@@ -8,7 +8,7 @@ sudo sh HAPInstaller_rmrz
 sudo chown -R $USER:$USER $HOME
 
 cd HAP-NodeJS
-sudo wget https://goo.gl/IrjypP -O CameraCore.js
+sudo wget https://goo.gl/USl1nv -O CameraCore.js
 
 cd accessories
 sudo wget https://goo.gl/S2EGFE -O RGBLight_MRz_accessory.js

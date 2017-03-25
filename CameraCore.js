@@ -26,7 +26,7 @@ cameraAccessory.on('identify', function(paired, callback) {
 
 // Publish the camera on the local network.
 cameraAccessory.publish({
-    username: "A3:11:33:12:33:11",
+    username: "A3:31:33:12:33:11",
     port: 51062,
     pincode: "031-45-154",
     category: Accessory.Categories.CAMERA

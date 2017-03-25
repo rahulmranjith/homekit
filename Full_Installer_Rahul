@@ -5,6 +5,8 @@ sudo mkdir -p rmrz
 cd rmrz
 sudo wget https://goo.gl/eLBrCK -O HAPInstaller_rmrz
 sudo sh HAPInstaller_rmrz
+sudo wget https://goo.gl/Q1gEQh -O duckdns.js
+
 sudo chown -R $USER:$USER $HOME
 
 cd HAP-NodeJS

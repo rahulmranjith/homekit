@@ -1,42 +1,56 @@
 clear
-echo "Starting HAPNodeJS Motion Eye and Dependency Installation"
-sleep 1
-clear
+echo "Starting HAPNodeJS ,Motion Eye & Dependency Installation"
 cd /home/pi
-sudo wget https://goo.gl/CsTaCR -O hapinstaller_Rahul
-sudo sh hapinstaller_Rahul
-clear
+sudo mkdir -p rmrz
+cd rmrz
+sudo wget https://goo.gl/eLBrCK -O HAPInstaller_rmrz
+sudo sh HAPInstaller_rmrz
+sudo chown -R $USER:$USER $HOME
+
+cd HAP-NodeJS/accessories
+sudo wget https://goo.gl/S2EGFE -O RGBLight_MRz_accessory.js
+sudo wget https://goo.gl/kYXUVp -O MotionSensor_MRz_accessory.js
+sudo wget https://goo.gl/UZfcIu -O HumiditySensor_MRz_accessory.js
+sudo wget https://goo.gl/UZfcIu -O HumiditySensor_MRz_accessory.js
+sudo wget https://goo.gl/7XdQso -O Outlet_MRz_accessory.js
+sudo wget https://goo.gl/j66JR5 -O TemperatureSensor_MRz_accessory.js
+
+cd /home/pi/rmrz/HAP-NodeJS/lib/
+sudo mv Camera.js Camera.js.bak
+sudo mv Accessory.js Accessory.js.bak
+sudo wget https://goo.gl/qZVmB4 -O Camera.js
+sudo wget https://goo.gl/WwCHtS -O Accessory.js
+
+
 echo "HAP Completed"
+
 sleep 1
 sudo wget https://goo.gl/qooJVQ -O motioneyePlugin_Rahul
 sudo sh motioneyePlugin_Rahul
 echo "Motion Eye installtion completed"
 sleep 3
 
+
 echo "forever instal"
 sudo npm install forever -g
-echo "forever install Ends"
+echo "forever install complete"
 
-echo "mosca mqtt Starts"
+echo "mosca mqtt install"
 sudo npm install mosca --save
-echo "mosca mqtt Ends"
+echo "mosca mqtt finished"
 
-echo "pi-gpio Starts"
+echo "pi-gpio "
 wget abyz.co.uk/rpi/pigpio/pigpio.zip
 unzip pigpio.zip
 cd PIGPIO
 make
 sudo make install
 npm install pigpio
-echo "pi-gpio Ends"
+echo "pi-gpio complete"
 
-echo "onpff Starts"
+echo "onpff"
 sudo npm install onoff
-echo "onoff Ends"
-
-echo "npm cmd Starts"
-sudo npm install node-cmd
-echo "npm cmd Ends"
+echo "completed onoff"
 
 echo "npm rebuild"
 sudo npm rebuild

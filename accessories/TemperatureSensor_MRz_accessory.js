@@ -27,7 +27,7 @@ var DS3231ESPTEMP = {
 var sensorUUID = uuid.generate('hap-nodejs:accessories:temperature-sensor');
 
 // This is the Accessory that we'll return to HAP-NodeJS that represents our fake lock.
-var sensor = exports.accessory = new Accessory('Temperature Sensor', sensorUUID);
+var sensor = exports.accessory = new Accessory('Temperature Sensor MRz', sensorUUID);
 
 // Add properties for publishing (in case we're using Core.js and not BridgedCore.js)
 sensor.username = "A3:99:32:BB:5E:AA";

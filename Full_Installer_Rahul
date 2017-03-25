@@ -12,28 +12,31 @@ sudo wget https://goo.gl/qooJVQ -O motioneyePlugin_Rahul
 sudo sh motioneyePlugin_Rahul
 echo "Motion Eye installtion completed"
 sleep 3
-clear
 
 echo "forever instal"
 sudo npm install forever -g
-echo "forever install complete"
+echo "forever install Ends"
 
-echo "mosca mqtt install"
+echo "mosca mqtt Starts"
 sudo npm install mosca --save
-echo "mosca mqtt finished"
+echo "mosca mqtt Ends"
 
-echo "pi-gpio "
+echo "pi-gpio Starts"
 wget abyz.co.uk/rpi/pigpio/pigpio.zip
 unzip pigpio.zip
 cd PIGPIO
 make
 sudo make install
 npm install pigpio
-echo "pi-gpio complete"
+echo "pi-gpio Ends"
 
-echo "onpff"
+echo "onpff Starts"
 sudo npm install onoff
-echo "completed onoff"
+echo "onoff Ends"
+
+echo "npm cmd Starts"
+sudo npm install node-cmd
+echo "npm cmd Ends"
 
 echo "npm rebuild"
 sudo npm rebuild

@@ -21,7 +21,7 @@ led = new Gpio(17, {
 dutyCycle = 0;
 
 var LightController = {
-    name: "RAHUL Light", //name of accessory
+    name: " RGB MRz Light", //name of accessory
     pincode: "031-45-154",
     username: "A3:99:33:12:33:1A", // MAC like address used by HomeKit to differentiate accessories.
     manufacturer: "JAI Systems", //manufacturer (optional)

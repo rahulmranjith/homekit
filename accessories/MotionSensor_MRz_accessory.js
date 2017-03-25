@@ -66,7 +66,7 @@ function start() {
             if (foundMotion) {
                 //motion detected for 1 sec
                 console.log("motion detected...")
-                cmd.run('sudo sh /home/pi/rmrz/hap-nodejs/task');
+                cmd.run('sudo sh /home/pi/rmrz/HAP-NodeJS/task');
                 sensor
                     .getService(Service.MotionSensor)
                     .setCharacteristic(Characteristic.MotionDetected, true);

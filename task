@@ -1,4 +1,5 @@
-cd /home/pi/node_modules/hap-nodejs/lib/res
+cd /home/pi/rmrz/hap-nodejs/lib/res
+
 wget http://localhost:8765/picture/1/current/ -O output.jpg
 file=output.jpg
 minimumsize=5000
@@ -8,4 +9,4 @@ if [ $actualsize -ge $minimumsize ]; then
 else
     wget http://localhost:8765/picture/1/current/ -O output.jpg
 fi
-ffmpeg -i /home/pi/node_modules/hap-nodejs/lib/res/output.jpg -vf scale=1280:720 /home/pi/node_modules/hap-nodejs/lib/res/snapshot.jpg -y
+ffmpeg -i /home/pi/rmrz/hap-nodejs/lib/res/output.jpg -vf scale=1280:720 /home/pi/rmrz/hap-nodejs/lib/res/snapshot.jpg -y

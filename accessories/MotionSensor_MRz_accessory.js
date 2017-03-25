@@ -17,15 +17,15 @@ var Gpio = require('onoff').Gpio,
 
 start();
 // here's a fake temperature sensor device that we'll expose to HomeKit
-var RahulMR_MOTIONSENSOR = {
+var MRz_MOTIONSENSOR = {
     isPresent: false,
     getState: function() {
         console.log("Getting the current state!");
-        return RahulMR_MOTIONSENSOR.isPresent;
+        return MRz_MOTIONSENSOR.isPresent;
     },
     randomState: function() {
         // randomize temperature to a value between 0 and 100
-        RahulMR_MOTIONSENSOR.isPresent = !RahulMR_MOTIONSENSOR.isPresent;
+        MRz_MOTIONSENSOR.isPresent = !MRz_MOTIONSENSOR.isPresent;
     }
 }
 
@@ -50,7 +50,7 @@ sensor
     .on('get', function(callback) {
 
         // return our current value
-        callback(null, RahulMR_MOTIONSENSOR.getState());
+        callback(null, MRz_MOTIONSENSOR.getState());
     });
 
 

@@ -48,9 +48,8 @@ The Outlet uses [S20 Sonoff](http://sonoff.itead.cc/en/products/residential/s20-
   Sonoff S20 outlet an ESP8266 integrated outlet .The stock firmware is replaced with [Tasmota](https://github.com/arendst/Sonoff-Tasmota). This is a customized one which has an MQTT server integrated.Also this emulates the Belkin hub and can be controller by Alexa as well .This can be configured in multiple ways and the button can perform multiple actions.
 
 
-**Extra Changes :**
+**Additional Changes :**
 ----------------
--
 **Configure the RPi for remote access:**_
 
 >_sudo nano /etc/dhcpcd.conf_
@@ -83,6 +82,7 @@ Add **_disable_camera_led=1_** to the last line
 -**Configure forever for startup script**_
 
 >_sudo nano /etc/rc.local_ 
+
 Add 
 ```
 sudo forever start /home/pi/rmrz/HAP-NodeJS/CameraCore.js 

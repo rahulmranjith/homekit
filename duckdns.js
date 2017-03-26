@@ -3,7 +3,7 @@ var http = require('http');
 //The url we want is: 'www.random.org/integers/?num=1&min=1&max=10&col=1&base=10&format=plain&rnd=new'
 var options = {
     host: 'www.duckdns.org',
-    path: '/update/rahulmr/40b1e34d-5d81-48db-8c2a-d6eba75242a0'
+    path: '/update/rahulmr/40b1e34d-5d81-8c2a-48db-d6eba75242a0'
 };
 
 callback = function(response) {

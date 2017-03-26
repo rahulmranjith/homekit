@@ -69,8 +69,8 @@ static routers=192.168.1.1
 static domainnameservers=192.168.1.1 8.8.8.8
 ```
 
-* **Set the RPi camera for the motion eye**
- >_sudo nano /etc/modules_
+***Set the RPi camera for the motion eye**
+>_sudo nano /etc/modules_
 
 Add **_bcm2835-v4l2_** to the end and reboot. 
 

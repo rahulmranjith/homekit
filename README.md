@@ -1,4 +1,4 @@
-# homekit
+# homekit with ESP8266 integration using MQTT - MRz
 
 Homekit HAP-NodeJS - Integration of HAP-NodeJS with WS2812(NeoPixel) ,DHT11 Temperature/Humidity Sensor,SONOFF S20(ESP8266 based outlet)and PIR sensor.
 
@@ -73,22 +73,19 @@ static domainnameservers=192.168.1.1 8.8.8.8
 -**Set the RPi camera for the motion eye**_
 >_sudo nano /etc/modules_
 
-Add _bcm2835-v4l2_ to the end 
-and reboot. 
+Add **_bcm2835-v4l2_** to the end and reboot. 
+
 
 -**Camera led off** _
-Edit : sudo nano /boot/config.txt
-Add 
-disable_camera_led=1 
-to the last line 
+>_sudo nano /boot/config.txt_
+Add **_disable_camera_led=1_** to the last line 
 
 -**Configure forever for startup script**_
 
-Edit :sudo nano /etc/rc.local 
+>_sudo nano /etc/rc.local_ 
 Add 
-
-> sudo forever start /home/pi/rmrz/HAP-NodeJS/CameraCore.js 
-
-> sudo forever start /home/pi/rmrz/duckdns.js
-
-before exit 0
+```
+sudo forever start /home/pi/rmrz/HAP-NodeJS/CameraCore.js 
+sudo forever start /home/pi/rmrz/duckdns.js
+```
+before **_exit 0_**

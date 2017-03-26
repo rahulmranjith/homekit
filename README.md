@@ -49,7 +49,7 @@ The Outlet uses [S20 Sonoff](http://sonoff.itead.cc/en/products/residential/s20-
   Sonoff S20 outlet an ESP8266 integrated outlet .The stock firmware is replaced with [Tasmota](https://github.com/arendst/Sonoff-Tasmota). This is a customized one which has an MQTT server integrated.Also this emulates the Belkin hub and can be controller by Alexa as well .This can be configured in multiple ways and the button can perform multiple actions.
 
 
-ESP8266 Integration 
+**ESP8266 Integration**
 
 -For ESP8266 integration using the MQTT please do check [ESP8266 MQTT MRz ](https://github.com/rahulmranjith/MQTT_esp8266_NeoPixel/tree/master)
 

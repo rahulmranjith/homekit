@@ -71,15 +71,14 @@ This will take care of installing all the modules as required.
 Add the following code to the last. This will set the IP of the pi as 192.168.1.99
 
 ```
-interface wlan0
-static ipaddress=192.168.1.99/24
-static routers=192.168.1.1
-static domainnameservers=192.168.1.1 8.8.8.8
-
 interface eth0
-static ipaddress=192.168.1.199/24
+static ip_address=192.168.1.199/24
 static routers=192.168.1.1
-static domainnameservers=192.168.1.1 8.8.8.8
+static domain_name_servers=192.168.1.1
+interface wlan0
+static ip_address=192.168.1.99/24
+static routers=192.168.1.1
+static domain_name_servers=192.168.1.1
 
 ```
 	

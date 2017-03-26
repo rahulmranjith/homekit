@@ -68,19 +68,18 @@ static routers=192.168.1.1
 static domainnameservers=192.168.1.1 8.8.8.8
 
 ```
-		
-
+	
 * **Set the RPi camera for the motion eye**
 
 **_sudo nano /etc/modules_**
 
-Add **_bcm2835-v4l2_** to the end and reboot. 
+Add `**_bcm2835-v4l2_**` to the end and reboot. 
 
-* **Camera red led off** _
+* **Camera red led off** 
 
 **_sudo nano /boot/config.txt_**
 
-Add **_disable_camera_led=1_** to the last line 
+Add `**_disable_camera_led=1_**` to the last line 
 
 * **Configure forever for startup script**
 

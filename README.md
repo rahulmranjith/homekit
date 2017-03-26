@@ -2,7 +2,7 @@
 
 Homekit HAP-NodeJS - Integration of HAP-NodeJS with WS2812(NeoPixel) ,DHT11 Temperature/Humidity Sensor,SONOFF S20(ESP8266 based outlet)and PIR sensor.
 
-This project uses existing HAP-NodeJS from https://github.com/KhaosT/HAP-NodeJS on Raspberry Pi.Changes are done for the following accessories :
+This project uses existing HAP-NodeJS from [HAP-NodeJS](https://github.com/KhaosT/HAP-NodeJS) on Raspberry Pi.Changes are done for the following accessories :
 
 - Motion Sensor
 - Temperature Sensor
@@ -69,7 +69,7 @@ static routers=192.168.1.1
 static domainnameservers=192.168.1.1 8.8.8.8
 ```
 
-***Set the RPi camera for the motion eye**
+* **Set the RPi camera for the motion eye**
 >_sudo nano /etc/modules_
 
 Add **_bcm2835-v4l2_** to the end and reboot. 

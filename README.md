@@ -50,7 +50,7 @@ The Outlet uses [S20 Sonoff](http://sonoff.itead.cc/en/products/residential/s20-
 
 **Extra Changes :**
 ----------------
--_
+-
 **Configure the RPi for remote access:**_
 
 _sudo nano /etc/dhcpcd.conf_
@@ -67,18 +67,18 @@ static ipaddress=192.168.1.199/24
 static routers=192.168.1.1
 static domainnameservers=192.168.1.1 8.8.8.8
 
--_**Set the RPi camera for the motion eye**_
+-**Set the RPi camera for the motion eye**_
 Edit:sudo nano /etc/modules
 Add bcm2835-v4l2 to the end 
 and reboot. 
 
--_**Camera led off** _
+-**Camera led off** _
 Edit : sudo nano /boot/config.txt
 Add 
 disable_camera_led=1 
 to the last line 
 
--_**Configure forever for startup script**_
+-**Configure forever for startup script**_
 
 Edit :sudo nano /etc/rc.local 
 Add 

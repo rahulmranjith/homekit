@@ -53,7 +53,7 @@ The Outlet uses [S20 Sonoff](http://sonoff.itead.cc/en/products/residential/s20-
 -
 **Configure the RPi for remote access:**_
 
->_sudo nano /etc/dhcpcd.conf_
+edit: >_sudo nano /etc/dhcpcd.conf_
 
 Add the following code to the last. This will set the IP of the pi as 192.168.1.99
 

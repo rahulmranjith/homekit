@@ -52,42 +52,42 @@ The Outlet uses [S20 Sonoff](http://sonoff.itead.cc/en/products/residential/s20-
 ----------------
 * **Configure the RPi for remote access:**
 
-run:  **_sudo nano /etc/dhcpcd.conf_**
+		**_sudo nano /etc/dhcpcd.conf_**
 
-Add the following code to the last. This will set the IP of the pi as 192.168.1.99
+		Add the following code to the last. This will set the IP of the pi as 192.168.1.99
 
-```
-interface wlan0
-static ipaddress=192.168.1.99/24
-static routers=192.168.1.1
-static domainnameservers=192.168.1.1 8.8.8.8
+		```
+		interface wlan0
+		static ipaddress=192.168.1.99/24
+		static routers=192.168.1.1
+		static domainnameservers=192.168.1.1 8.8.8.8
 
 
-interface eth0
-static ipaddress=192.168.1.199/24
-static routers=192.168.1.1
-static domainnameservers=192.168.1.1 8.8.8.8
-```
+		interface eth0
+		static ipaddress=192.168.1.199/24
+		static routers=192.168.1.1
+		static domainnameservers=192.168.1.1 8.8.8.8
+		```
 
 * **Set the RPi camera for the motion eye**
 
-run **_sudo nano /etc/modules_**
+		**_sudo nano /etc/modules_**
 
-Add **_bcm2835-v4l2_** to the end and reboot. 
+		Add **_bcm2835-v4l2_** to the end and reboot. 
 
 * **Camera red led off** _
 
-run **_sudo nano /boot/config.txt_**
+		**_sudo nano /boot/config.txt_**
 
-Add **_disable_camera_led=1_** to the last line 
+		Add **_disable_camera_led=1_** to the last line 
 
 * **Configure forever for startup script**
 
-run **_sudo nano /etc/rc.local_**
+		**_sudo nano /etc/rc.local_**
 
-Add 
-```
-sudo forever start /home/pi/rmrz/HAP-NodeJS/CameraCore.js 
-sudo forever start /home/pi/rmrz/duckdns.js
-```
-before **_exit 0_**
+		Add 
+		```
+		sudo forever start /home/pi/rmrz/HAP-NodeJS/CameraCore.js 
+		sudo forever start /home/pi/rmrz/duckdns.js
+		```
+		before **_exit 0_**

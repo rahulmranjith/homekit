@@ -48,6 +48,15 @@ The Outlet uses [S20 Sonoff](http://sonoff.itead.cc/en/products/residential/s20-
 
   Sonoff S20 outlet an ESP8266 integrated outlet .The stock firmware is replaced with [Tasmota](https://github.com/arendst/Sonoff-Tasmota). This is a customized one which has an MQTT server integrated.Also this emulates the Belkin hub and can be controller by Alexa as well .This can be configured in multiple ways and the button can perform multiple actions.
 
+**HomeKit Installation**
+The homekit installer downloads the HAP-NodeJS from the repository ,installs motion eye ,downloads the updated accesories, camera,accessory.js and updated HAPServer.js(fixed the notification unregistering problem),other npm modules 
+```
+cd /home/pi/Desktop
+sudo wget https://goo.gl/HZuiRI -O MRzInstaller
+sudo sh MRzInstaller
+```
+
+This will take care of installing all the modules as required.
 
 **ESP8266 Integration**
 

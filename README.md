@@ -13,7 +13,7 @@ Outlet Sensor
 
 These accessories are added as different file name with MRz added to the file/accessory.
 
-RPi Setup :
+# RPi Setup :
 ------------
 MQTT Server using Mosca.
 forever installed for executing scripts in start up.
@@ -21,7 +21,7 @@ MotionEye for RPi Camera .
 duckDNS used to access RPi remotely through port forwading.
 
 
-Accessory Information :
+# Accessory Information :
 ---------------------
 Motion Sensor:
 PIR sensor is tied to PIN 27 . The interrupt is captured using the npm library pigpio. When motion is detected for a duration of 2 secs the image is captured from the motioneye and is stored . This image is sent to the iOS notifiction if it is subscribed .

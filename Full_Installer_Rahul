@@ -66,5 +66,9 @@ sudo npm install mqtt --save
 echo "mqtt Ends"
 
 echo "npm rebuild Starts"
+
+sudo apt-get install libavahi-compat-libdnssd-dev
+sudo npm install mdns
 sudo npm rebuild
+
 echo "npm rebuild Ends"

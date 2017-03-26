@@ -42,7 +42,7 @@ duckDNS used to access RPi remotely through port forwading.
 
 	Raspi Cam used to capture the image once motion detection happens.The camera is also configured for the motionEye for live streaming.The PIR sensor once detects any motion captures an image using task (thanks to legotheboss for the task to capture the image ). The notification once selected, the app is opened and the live streaming starts.
 
-- Outlet :
+ - Outlet :
 The Outlet uses [S20 Sonoff](http://sonoff.itead.cc/en/products/residential/s20-socket)
 
   Sonoff S20 outlet an ESP8266 integrated outlet .The stock firmware is replaced with [Tasmota](https://github.com/arendst/Sonoff-Tasmota). This is a customized one which has an MQTT server integrated.Also this emulates the Belkin hub and can be controller by Alexa as well .This can be configured in multiple ways and the button can perform multiple actions.
@@ -52,7 +52,7 @@ The Outlet uses [S20 Sonoff](http://sonoff.itead.cc/en/products/residential/s20-
 ----------------
 * **Configure the RPi for remote access:**
 
->_sudo nano /etc/dhcpcd.conf_
+run:  **_sudo nano /etc/dhcpcd.conf_**
 
 Add the following code to the last. This will set the IP of the pi as 192.168.1.99
 
@@ -70,17 +70,20 @@ static domainnameservers=192.168.1.1 8.8.8.8
 ```
 
 * **Set the RPi camera for the motion eye**
->_sudo nano /etc/modules_
+
+run **_sudo nano /etc/modules_**
 
 Add **_bcm2835-v4l2_** to the end and reboot. 
 
-* **Camera led off** _
- >_sudo nano /boot/config.txt_
- Add **_disable_camera_led=1_** to the last line 
+* **Camera red led off** _
+
+run **_sudo nano /boot/config.txt_**
+
+Add **_disable_camera_led=1_** to the last line 
 
 * **Configure forever for startup script**
 
->_sudo nano /etc/rc.local_ 
+run **_sudo nano /etc/rc.local_**
 
 Add 
 ```
